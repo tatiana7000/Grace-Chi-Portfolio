@@ -231,19 +231,21 @@
   }
   .impact-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(5,1fr);
     gap:24px 0;
   }
-  @media (max-width:760px){ .impact-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:480px){ .impact-grid{grid-template-columns:1fr;} }
+  @media (max-width:900px){ .impact-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:560px){ .impact-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:380px){ .impact-grid{grid-template-columns:1fr;} }
   .impact-item{
     text-align:center;
     padding:4px 18px;
     border-left:1px solid var(--line);
   }
   .impact-item:first-child{border-left:none;}
-  @media (max-width:760px){ .impact-item:nth-child(odd){border-left:none;} }
-  @media (max-width:480px){ .impact-item{border-left:none; border-top:1px solid var(--line); padding-top:20px;} .impact-item:first-child{border-top:none;} }
+  @media (max-width:900px){ .impact-item:nth-child(3n+1){border-left:none;} }
+  @media (max-width:560px){ .impact-item:nth-child(odd){border-left:none;} .impact-item:nth-child(3n+1){border-left:1px solid var(--line);} }
+  @media (max-width:380px){ .impact-item{border-left:none; border-top:1px solid var(--line); padding-top:20px;} .impact-item:first-child{border-top:none;} }
   .impact-num{
     font-family:'Jost', sans-serif;
     font-weight:700;
@@ -716,6 +718,7 @@
 
 <section class="impact" id="impact">
   <div class="wrap impact-grid">
+    <div class="impact-item reveal"><div class="impact-num" data-count="50" data-suffix="+">50+</div><div class="impact-label">Store Locations Marketed</div></div>
     <div class="impact-item reveal"><div class="impact-num" data-count="546" data-suffix="K+">546K+</div><div class="impact-label">Profile Impressions</div></div>
     <div class="impact-item reveal"><div class="impact-num" data-count="38.8" data-suffix="K">38.8K</div><div class="impact-label">Direction Clicks</div></div>
     <div class="impact-item reveal"><div class="impact-num" data-count="4.5" data-suffix="★ / 583" data-decimals="1">4.5★</div><div class="impact-label">Avg. Rating · 583 Reviews</div></div>
@@ -739,7 +742,7 @@
           <div class="venture-card reveal">
             <span class="venture-role">Marketing Intern &amp; Team Member</span>
             <h4>986 Pharmacy</h4>
-            <p>Led brand, social, and campaign marketing across every store location — the work behind most of the case studies on this page.</p>
+            <p>Led brand, social, and campaign marketing for a multi-location pharmacy chain — 50+ stores — the work behind most of the case studies on this page.</p>
           </div>
           <div class="venture-card reveal">
             <span class="venture-role">Founder · 2024–2026</span>
@@ -760,6 +763,7 @@
         <div class="fact-row"><span class="fact-label">Program</span><span class="fact-value">California Baptist University</span></div>
         <div class="fact-row"><span class="fact-label">Languages</span><span class="fact-value">English &amp; Mandarin</span></div>
         <div class="fact-row"><span class="fact-label">Experience</span><span class="fact-value">Marketing Intern &amp; Team Member, 986 Pharmacy</span></div>
+        <div class="fact-row"><span class="fact-label">Client</span><span class="fact-value">Multi-Location Pharmacy · 50+ Stores</span></div>
       </aside>
     </div>
   </div>
@@ -879,7 +883,7 @@
       id:"c1", group:"brand", tag:"Brand & Visual Marketing",
       title:"One Brand, Five Languages",
       hook:"Creating a consistent, patient-centered pharmacy experience.",
-      overview:"Built reusable, on-brand templates and multilingual signage for 986 Pharmacy, keeping one consistent visual identity across every store — from flu-shot flyers to in-store signage.",
+      overview:"Built reusable, on-brand templates and multilingual signage for 986 Pharmacy, a multi-location pharmacy chain with 50+ stores, keeping one consistent visual identity across every location — from flu-shot flyers to in-store signage.",
       meta:[
         {h:"Languages Covered", items:["English","Chinese","Vietnamese","Spanish","Korean"]},
         {h:"Role & Skills", items:["Brand design","Multilingual marketing","Template development","Visual identity consistency"]}
