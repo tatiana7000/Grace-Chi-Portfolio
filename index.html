@@ -381,6 +381,45 @@
     color:var(--paper);
   }
 
+  /* ---------- services list ---------- */
+  .services-list{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid var(--line);
+  }
+  .service-row{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    width:100%;
+    padding:20px 6px;
+    background:none;
+    border:none;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    cursor:pointer;
+    transition:background .2s ease, padding-left .2s ease;
+  }
+  .service-row:hover{background:var(--paper-2); padding-left:14px;}
+  .service-index{
+    font-family:'Jost', sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--accent);
+    width:28px;
+    flex-shrink:0;
+    font-variant-numeric:tabular-nums;
+  }
+  .service-text{flex:1; min-width:0;}
+  .service-title{font-family:'Playfair Display', serif; font-size:1.15rem; color:var(--ink);}
+  .service-hook{font-size:0.9rem; color:var(--ink-soft); margin-top:2px;}
+  .service-row svg{flex-shrink:0; color:var(--accent-deep); transition:transform .2s ease;}
+  .service-row:hover svg{transform:translateX(4px);}
+  @media (max-width:640px){
+    .service-hook{display:none;}
+    .service-row{gap:14px;}
+  }
+
   /* ---------- work grid ---------- */
   .grid{
     display:grid;
@@ -690,6 +729,7 @@
   <div class="nav-inner">
     <button class="brand" data-scroll="#top">GRACE H. CHI</button>
     <nav class="navlinks" id="navlinks">
+      <button data-scroll="#services">Services</button>
       <button data-scroll="#about">About</button>
       <button data-scroll="#work">Work</button>
       <button data-scroll="#skills">Skills</button>
@@ -723,6 +763,17 @@
     <div class="impact-item reveal"><div class="impact-num" data-count="38.8" data-suffix="K">38.8K</div><div class="impact-label">Direction Clicks</div></div>
     <div class="impact-item reveal"><div class="impact-num" data-count="4.5" data-suffix="★ / 583" data-decimals="1">4.5★</div><div class="impact-label">Avg. Rating · 583 Reviews</div></div>
     <div class="impact-item reveal"><div class="impact-num" data-count="8" data-suffix="K+">8K+</div><div class="impact-label">Top Reel Views</div></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2>Ten ways I help a brand show up</h2>
+      <p class="section-sub">Click any service to jump straight to that case study — the full write-up, images, and results.</p>
+    </div>
+    <div class="services-list" id="servicesList"></div>
   </div>
 </section>
 
@@ -1070,6 +1121,19 @@
     });
   }
   renderGrid("all");
+
+  // ---- services overview ----
+  const servicesList = document.getElementById("servicesList");
+  CASES.forEach(function(c, i){
+    const row = document.createElement("button");
+    row.className = "service-row reveal is-visible";
+    row.innerHTML =
+      '<span class="service-index">'+String(i+1).padStart(2,"0")+'</span>' +
+      '<span class="service-text"><span class="service-title">'+c.tag+'</span><span class="service-hook"> — '+c.hook+'</span></span>' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    row.addEventListener("click", function(){ openModal(c); });
+    servicesList.appendChild(row);
+  });
 
   // ---- modal ----
   const overlay = document.getElementById("modalOverlay");
