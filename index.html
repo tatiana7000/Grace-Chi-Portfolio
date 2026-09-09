@@ -385,19 +385,22 @@
   @media (prefers-reduced-motion:reduce){ .reels-track{animation:none;} }
   .reel-chip{
     flex-shrink:0;
-    display:flex; align-items:center; gap:10px;
-    padding:12px 20px;
+    display:flex; align-items:center; gap:9px;
+    padding:11px 20px;
     border-radius:999px;
     text-decoration:none;
-    color:#FFFFFF;
-    font-family:'Jost', sans-serif; font-size:0.84rem; font-weight:700;
-    background:linear-gradient(135deg, #4F5BD5, #962FBF, #D62976, #FA7E1E, #FEDA75);
+    color:var(--ink);
+    font-family:'Jost', sans-serif; font-size:0.82rem; font-weight:600;
+    background:var(--card);
+    border:1px solid var(--line);
     white-space:nowrap;
+    transition:border-color .2s ease, background .2s ease;
   }
+  .reel-chip:hover{border-color:var(--accent-deep); background:var(--paper-2);}
   .reel-chip .ig-icon{
-    width:22px; height:22px; border-radius:7px;
-    background:rgba(255,255,255,0.22);
+    width:18px; height:18px;
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--accent-deep);
   }
 
   /* ---------- services list ---------- */
@@ -532,29 +535,25 @@
   }
   .modal-post-row{
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
-    padding:18px 10px;
-    border:none;
-    border-radius:16px;
+    padding:16px 10px;
+    border:1px solid var(--line);
+    border-radius:14px;
     text-decoration:none;
-    color:#FFFFFF;
-    font-family:'Jost', sans-serif; font-size:0.78rem; font-weight:700;
+    color:var(--ink);
+    font-family:'Jost', sans-serif; font-size:0.78rem; font-weight:600;
     letter-spacing:0.01em;
-    background:linear-gradient(135deg, #4F5BD5, #962FBF, #D62976, #FA7E1E, #FEDA75);
-    background-size:220% 220%;
-    background-position:0% 50%;
-    box-shadow:0 8px 18px -8px rgba(150,47,191,0.5);
-    transition:transform .22s ease, box-shadow .22s ease, background-position .5s ease;
+    background:var(--paper-2);
+    transition:border-color .2s ease, background .2s ease, transform .2s ease;
   }
   .modal-post-row:hover, .modal-post-row:focus-visible{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 16px 30px -10px rgba(150,47,191,0.6);
-    background-position:100% 50%;
+    border-color:var(--accent-deep);
+    background:var(--accent-pale);
+    transform:translateY(-2px);
   }
   .modal-post-row .ig-icon{
-    width:26px; height:26px;
-    border-radius:8px;
-    background:rgba(255,255,255,0.22);
+    width:24px; height:24px;
     display:flex; align-items:center; justify-content:center;
+    color:var(--accent-deep);
   }
   .modal-post-row svg{flex-shrink:0;}
 
@@ -1112,7 +1111,7 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 
   // ---- reels marquee ----
-  const IG_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="#fff" stroke="none"/></svg>';
+  const IG_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>';
   function reelChip(url, i){
     const isReel = url.indexOf("/reel/") !== -1;
     return '<a class="reel-chip" href="'+url+'" target="_blank" rel="noopener noreferrer">' +
